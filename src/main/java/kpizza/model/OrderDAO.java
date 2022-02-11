@@ -32,24 +32,24 @@ public class OrderDAO {
 		}
 		
 		//id로 order 정보가져오기
-		public static OrderDTO getOrder(String order) throws SQLException{
+		public static OrderDTO getOrder(String orderId) throws SQLException{
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
-			OrderDTO activist = null;
+			OrderDTO order = null;
 			
 			try{
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement("select * from order where order_list_id=?");
-				pstmt.setString(1, order);
+				pstmt.setString(1, orderId);
 				rset = pstmt.executeQuery();
 				if(rset.next()){
-					activist = new OrderDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getInt(5), rset.getString(6), rset.getInt(7), rset.getInt(8),rset.getString(9));
+					order = new OrderDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getInt(5), rset.getString(6), rset.getInt(7), rset.getInt(8),rset.getString(9));
 				}
 			}finally{
 				DBUtil.close(con, pstmt, rset);
 			}
-			return activist;
+			return order;
 		}
 		
 		// 주문 정보 추가
@@ -99,4 +99,5 @@ public class OrderDAO {
 					return false;
 				}
 
+				
 }

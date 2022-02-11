@@ -24,7 +24,7 @@ public class MenuDAO {
 
 			list = new ArrayList<MenuDTO>();
 			while (rset.next()) {
-				list.add(new MenuDTO(rset.getString(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getInt(5)));
+				list.add(new MenuDTO(rset.getString(1), rset.getString(2), rset.getString(3), rset.getInt(4)));
 			}
 		} finally {
 			DBUtil.close(con, pstmt, rset);
@@ -45,7 +45,7 @@ public class MenuDAO {
 			pstmt.setString(1, foodId);
 			rset = pstmt.executeQuery();
 			if(rset.next()){
-				menu = new MenuDTO(rset.getString(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getInt(5));
+				menu = new MenuDTO(rset.getString(1), rset.getString(2), rset.getString(3), rset.getInt(4));
 			}
 		}finally{
 			DBUtil.close(con, pstmt, rset);
@@ -62,8 +62,7 @@ public class MenuDAO {
 			pstmt.setString(1, menu.getFood_id());
 			pstmt.setString(2, menu.getFood_name());
 			pstmt.setString(3, menu.getSort());
-			pstmt.setString(4, menu.getFood_size());
-			pstmt.setInt(5, menu.getPrice());
+			pstmt.setInt(4, menu.getPrice());
 			
 			int result = pstmt.executeUpdate();
 		

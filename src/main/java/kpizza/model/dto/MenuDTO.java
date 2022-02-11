@@ -1,9 +1,8 @@
-/**--menu insert 메뉴 저장 (음식id, 음식이름, 종류, 사이즈, 가격)
+/**--menu insert 메뉴 저장 (음식id, 음식이름, 종류, 가격)
 CREATE table menu (
        food_id          	VARCHAR2(20) PRIMARY KEY,
        food_name          	VARCHAR2(20) NOT NULL,
        sort		            VARCHAR2(20) NOT NULL,
-       food_size          	VARCHAR2(20) NOT NULL,
        price		        NUMBER(5) NOT NULL
 );
  */
@@ -21,12 +20,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 
+
 public class MenuDTO {
 	private String food_id;
 	private String food_name;
 	private String sort;
-	private String food_size;
 	private int price;
+	
 	
 
 	

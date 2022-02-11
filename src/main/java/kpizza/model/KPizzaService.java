@@ -3,6 +3,7 @@ package kpizza.model;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import kpizza.exception.MessageException;
 import kpizza.exception.NotExistException;
 import kpizza.model.dto.ClientDTO;
 import kpizza.model.dto.MenuDTO;
@@ -27,6 +28,15 @@ public class KPizzaService {
 			
 			return clientAll;
 		}
+		public static boolean addClient(ClientDTO client) throws MessageException{
+			boolean result = false;
+			try{
+				result = ClientDAO.addClientDTO(client);
+			}catch(SQLException s){
+				throw new MessageException("이미 존재하는 ID입니다 다시 시도 하세요");
+			}
+			return result;
+		}
 
 		public static ArrayList<MenuDTO> getAllMenu() throws SQLException,NotExistException{
 			ArrayList<MenuDTO> menuAll = MenuDAO.getAllMenus();
@@ -36,5 +46,13 @@ public class KPizzaService {
 			}
 			
 			return menuAll;
+		}
+
+		public static MenuDTO getMenu(String foodId) throws NotExistException, SQLException {
+			MenuDTO menu = MenuDAO.getMenu(foodId);
+			if(foodId == null) {
+				throw new NotExistException("검색하는 재능 기부자가 미 존재합니다.");
+			}
+			return menu;
 		}
 }

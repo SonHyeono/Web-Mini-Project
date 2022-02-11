@@ -18,7 +18,7 @@
 	insert into menu values('pizza8', '반반 세트', 'pizza', 25000);
 	
 	--추가주문으로만 가능한 음식
-	insert into menu values('drink1', '콜라', 'drink' 2000);
+	insert into menu values('drink1', '콜라', 'drink', 2000);
 	insert into menu values('drink2', '사이다', 'drink', 2000);
 	insert into menu values('side1', '갈릭소스', 'side', 2000);
 	insert into menu values('side2', '핫소스', 'side', 2000);
