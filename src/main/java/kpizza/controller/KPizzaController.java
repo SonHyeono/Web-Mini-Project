@@ -95,7 +95,7 @@ public class KPizzaController extends HttpServlet {
 			if(result){
 				request.setAttribute("client", client);
 				request.setAttribute("successMsg", "가입 완료");
-				url = "clientDetail.jsp";
+				url = "kPizza.html";
 			}else{
 				request.setAttribute("errorMsg", "다시 시도하세요");
 			}
