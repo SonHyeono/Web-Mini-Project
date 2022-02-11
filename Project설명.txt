@@ -23,5 +23,5 @@ DB:
 		
 DB 구성:
 	table 1 : 회원정보 (명목형으로 분류, column명 : 회원정보(1 : Client, 2 : 사장님))
-	table 3 : 메뉴
-	table 4 : 주문 내역
+	table 2 : 메뉴
+	table 3 : 주문 내역
