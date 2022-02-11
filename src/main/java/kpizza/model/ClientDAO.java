@@ -32,24 +32,24 @@ public class ClientDAO {
 	}
 	
 	//id로 client 정보가져오기
-	public static ClientDTO getClient(String client) throws SQLException{
+	public static ClientDTO getClient(String clientId) throws SQLException{
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ClientDTO activist = null;
+		ClientDTO client = null;
 		
 		try{
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement("select * from client where client_id=?");
-			pstmt.setString(1, client);
+			pstmt.setString(1, clientId);
 			rset = pstmt.executeQuery();
 			if(rset.next()){
-				activist = new ClientDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7));
+				client = new ClientDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4), rset.getString(5), rset.getString(6), rset.getString(7));
 			}
 		}finally{
 			DBUtil.close(con, pstmt, rset);
 		}
-		return activist;
+		return client;
 	}
 	
 	public static boolean addClientDTO(ClientDTO client) throws SQLException{

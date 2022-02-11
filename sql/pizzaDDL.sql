@@ -26,7 +26,6 @@ CREATE table menu (
        food_id          	VARCHAR2(20) PRIMARY KEY,
        food_name          	VARCHAR2(20) NOT NULL,
        sort		            VARCHAR2(20) NOT NULL,
-       food_size          	VARCHAR2(20) NOT NULL,
        price		        NUMBER(5) NOT NULL
 );
 
