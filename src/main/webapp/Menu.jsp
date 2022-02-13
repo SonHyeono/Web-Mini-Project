@@ -39,6 +39,21 @@ body, h1, h2, h3, h4, h5, h6 {
 </head>
 <body>
 
+	<!-- Navbar (sit on top) -->
+	<div class="w3-top w3-hide-small">
+		<div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off"
+			id="myNavbar">
+			<a href="KPizza.html" class="w3-bar-item w3-button">HOME</a> <a
+				href="controller?command=kpizzaMenuAll"
+				class="w3-bar-item w3-button">MENU</a> <a href="Order.jsp"
+				class="w3-bar-item w3-button">ORDER</a>
+			<div class="w3-right w3-hide-small">
+				<a onclick="document.getElementById('id01').style.display='block'"
+					class="w3-bar-item w3-button">로그인</a>
+			</div>
+		</div>
+	</div>
+
 	<!-- Menu Container -->
 	<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
 		<div class="w3-content">
@@ -68,8 +83,8 @@ body, h1, h2, h3, h4, h5, h6 {
 						<h1>
 							<b> ${dataAll.food_name} </b> <span
 								class="w3-right w3-tag w3-dark-grey w3-round">
-								${dataAll.price} <label><input type=checkbox name= pizza
-									value= ${dataAll.food_id}></label>
+								${dataAll.price} <label><input type=checkbox name=pizza
+									value=${dataAll.food_id}></label>
 							</span>
 
 						</h1>
@@ -84,7 +99,7 @@ body, h1, h2, h3, h4, h5, h6 {
 						<h1>
 							<b> ${dataAll.food_name} </b> <span
 								class="w3-right w3-tag w3-dark-grey w3-round">
-								${dataAll.price} <label><input type=checkbox name= side
+								${dataAll.price} <label><input type=checkbox name=side
 									value=${dataAll.food_id}></label>
 							</span>
 
@@ -103,7 +118,7 @@ body, h1, h2, h3, h4, h5, h6 {
 						<h1>
 							<b> ${dataAll.food_name} </b> <span
 								class="w3-right w3-tag w3-dark-grey w3-round">
-								${dataAll.price} <label><input type=checkbox name= drink
+								${dataAll.price} <label><input type=checkbox name=drink
 									value=${dataAll.food_id}></label>
 							</span>
 
@@ -120,8 +135,8 @@ body, h1, h2, h3, h4, h5, h6 {
 			<p>
 			<div class="w3-right w3-hide-small">
 				<a href="javascript:void(0)"
-					onclick="CheckboxToHidden(frm, frm.chk); frm.submit();"> 
-					<a href="Order.jsp" class="w3-button w3-xxlarge w3-black">주문 하기</a>
+					onclick="CheckboxToHidden(frm, frm.chk); frm.submit();"> <a
+					href="Order.jsp" class="w3-button w3-xxlarge w3-black">주문 하기</a>
 				</a>
 			</div>
 			</p>
